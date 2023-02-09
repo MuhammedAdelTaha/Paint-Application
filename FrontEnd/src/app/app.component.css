@@ -1,0 +1,75 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 44fr 1fr;
+  grid-template-columns: 1fr 9fr 1fr 38fr 1fr;
+  grid-template-areas:
+    "b n n n n"
+    "b tools m board l"
+    "footer footer footer footer footer";
+  background-color: rgb(64, 76, 82);
+}
+.tools {
+  background-color: white;
+  grid-area: tools;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.board {
+  background-color: white;
+  grid-area: board;
+  border-radius: 5px;
+}
+img {
+  width: 20%;
+  height: 50%;
+  object-fit: contain;
+}
+button {
+  display: flex;
+  font-size: large;
+  align-items: center;
+  background-color: inherit;
+  border: 2px solid rgb(5, 20, 29);
+  justify-self: center;
+  height: 30px;
+  width: 70%;
+  border-radius: 20px;
+  margin: 3px 3px 3px 3px;
+  justify-content: space-around;
+}
+button:hover {
+  background-color: rgb(196, 196, 196);
+  transition: 0.7s;
+}
+.drawShapes {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 1fr 4fr;
+}
+.shapes {
+  display: grid;
+  grid-template-areas:
+    "x x x"
+    "x x x";
+}
+h4 {
+  text-align: center;
+}
+#stage {
+  background-color: rgb(66, 76, 80);
+}
+.row {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.row img {
+  object-fit: cover;
+}

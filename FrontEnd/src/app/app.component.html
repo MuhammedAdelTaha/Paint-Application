@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="tools">
+    <h4>Draw</h4>
+    <button (click)="addShape('square')">
+      <img src="../assets/square.svg" alt="fail" />Square
+    </button>
+    <button (click)="addShape('circle')">
+      <img src="../assets/circle.svg" alt="fail" />circle
+    </button>
+    <button (click)="addShape('rectangle')">
+      <img src="../assets/rectangle.svg" alt="fail" />rectangle
+    </button>
+    <button (click)="addShape('lineSegment')">
+      <img src="../assets/line.svg" alt="fail" />line
+    </button>
+    <button (click)="addShape('triangle')">
+      <img src="../assets/triangle.svg" alt="fail" />triangle
+    </button>
+    <button (click)="addShape('ellipse')">
+      <img src="../assets/ellipse.svg" alt="fail" />ellipse
+    </button>
+    <button (click)="copy()">
+      <img src="../assets/copy.svg" alt="fail" />copy
+    </button>
+    <button (click)="delete()">delete</button>
+    <div class="row">
+      <button (click)="undo()">Undo</button>
+      <button (click)="redo()">Redo</button>
+    </div>
+    <div class="row">
+      <button (click)="reset()">clear</button>
+    </div>
+    <div class="row">
+      <input type="text" #foldername placeholder="write the folder path" />
+    </div>
+    <div class="row">
+      <input type="text" #filename placeholder="write file name" />
+    </div>
+    <div class="row">
+      <input type="text" #extension placeholder="enter the extension" />
+    </div>
+    <div class="row">
+      <button
+        (click)="save(foldername.value, filename.value,extension.value)"
+      >
+        <img src="../assets/save.png" alt="fail" /> save
+      </button>
+    </div>
+    <div class="row">
+      <input type="text" #loadfile placeholder="enter the path to load" />
+    </div>
+    <div class="row">
+      <button (click)="load(loadfile.value)">
+        <img src="../assets/load.png" alt="fail" /> load
+      </button>
+    </div>
+    <div>
+      <input type="color" id = "palette" [(ngModel)]="colour" (change)="fill()" />
+      <label for="palette"> Palette</label>
+    </div>
+  </div>
+  <div class="board">
+    <div id="drawingBoard"></div>
+  </div>
+</div>
