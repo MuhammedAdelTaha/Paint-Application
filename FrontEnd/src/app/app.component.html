@@ -1,65 +1,69 @@
-<div class="container">
-  <div class="tools">
-    <h4>Draw</h4>
-    <button (click)="addShape('square')">
-      <img src="../assets/square.svg" alt="fail" />Square
-    </button>
-    <button (click)="addShape('circle')">
-      <img src="../assets/circle.svg" alt="fail" />circle
-    </button>
-    <button (click)="addShape('rectangle')">
-      <img src="../assets/rectangle.svg" alt="fail" />rectangle
-    </button>
-    <button (click)="addShape('lineSegment')">
-      <img src="../assets/line.svg" alt="fail" />line
-    </button>
-    <button (click)="addShape('triangle')">
-      <img src="../assets/triangle.svg" alt="fail" />triangle
-    </button>
-    <button (click)="addShape('ellipse')">
-      <img src="../assets/ellipse.svg" alt="fail" />ellipse
-    </button>
-    <button (click)="copy()">
-      <img src="../assets/copy.svg" alt="fail" />copy
-    </button>
-    <button (click)="delete()">delete</button>
-    <div class="row">
-      <button (click)="undo()">Undo</button>
-      <button (click)="redo()">Redo</button>
+<html>
+
+<head>
+  <link rel="stylesheet" href="app.component.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="tools">
+      <div class="button" title="square" (click)="addShape('square')">
+        <img src="../assets/square.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="circle" (click)="addShape('circle')">
+        <img src="../assets/circle.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="rectangle" (click)="addShape('rectangle')">
+        <img src="../assets/rectangle.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="lineSegment" (click)="addShape('lineSegment')">
+        <img src="../assets/line.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="triangle" (click)="addShape('triangle')">
+        <img src="../assets/triangle.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="ellipse" (click)="addShape('ellipse')">
+        <img src="../assets/ellipse.svg" alt="fail" />
+      </div>
+
+      <div class="button" title="copy" (click)="copy()">
+        <img src="../assets/copy.svg" alt="fail" />
+      </div>
+
+      <div class="button" (click)="delete()">delete</div>
+      
+      <div class="button" (click)="undo()">undo</div>
+      
+      <div class="button" (click)="redo()">redo</div>
+      
+      <div class="button" (click)="reset()">clear</div>
+      
+      <input type="text" #foldername placeholder="Folder Path" />
+
+      <input type="text" #filename placeholder="File Name" />
+
+      <input type="text" #extension placeholder="Extension" />
+
+      <div class="button" title="save" (click)="save(foldername.value, filename.value,extension.value)">
+        <img src="../assets/save.png" alt="fail" />
+      </div>
+
+      <input type="text" #loadfile placeholder="File Path" />
+
+      <div class="button" title="load" (click)="load(loadfile.value)">
+        <img src="../assets/load.png" alt="fail" />
+      </div>
+
+      <input type="color" class="palette" title="Palette" [(ngModel)]="colour" (change)="fill()" />
     </div>
-    <div class="row">
-      <button (click)="reset()">clear</button>
-    </div>
-    <div class="row">
-      <input type="text" #foldername placeholder="write the folder path" />
-    </div>
-    <div class="row">
-      <input type="text" #filename placeholder="write file name" />
-    </div>
-    <div class="row">
-      <input type="text" #extension placeholder="enter the extension" />
-    </div>
-    <div class="row">
-      <button
-        (click)="save(foldername.value, filename.value,extension.value)"
-      >
-        <img src="../assets/save.png" alt="fail" /> save
-      </button>
-    </div>
-    <div class="row">
-      <input type="text" #loadfile placeholder="enter the path to load" />
-    </div>
-    <div class="row">
-      <button (click)="load(loadfile.value)">
-        <img src="../assets/load.png" alt="fail" /> load
-      </button>
-    </div>
-    <div>
-      <input type="color" id = "palette" [(ngModel)]="colour" (change)="fill()" />
-      <label for="palette"> Palette</label>
-    </div>
+
+    <div id="board"></div>
   </div>
-  <div class="board">
-    <div id="drawingBoard"></div>
-  </div>
-</div>
+</body>
+
+</html>

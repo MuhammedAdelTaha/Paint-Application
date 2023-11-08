@@ -32,9 +32,9 @@ export class AppComponent implements OnInit {
     this.colour = '#ffffff';
     this.currentShape = '0';
     this.stage = new Stage({
-      container: 'drawingBoard',
-      width: window.innerWidth * 0.8,
-      height: window.innerHeight * 0.9,
+      container: 'board',
+      width: window.innerWidth * 0.75,
+      height: window.innerHeight * 0.95,
     });
     this.view = new View();
     this.view.dynamicLayer = new Layer();
