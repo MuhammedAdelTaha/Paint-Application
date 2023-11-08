@@ -41,6 +41,7 @@ public class PaintController {
 						 @PathVariable("stroke") String stroke, @PathVariable("strokeWidth") double strokeWidth,
 						 @PathVariable("scaleX") double scaleX, @PathVariable("scaleY") double scaleY, 
 						 @PathVariable("angle") double angle, @PathVariable("draggable") boolean draggable) throws CloneNotSupportedException {
+		System.out.println("addShape");
 		this.originator.addShape(new Shape(name, id, x, y, width, height, fillColor, stroke, strokeWidth, scaleX, scaleY, angle, draggable));
 		this.careTaker.save(originator);
 		this.careTaker.clearRedo();
@@ -48,7 +49,9 @@ public class PaintController {
 	
 	@GetMapping("/color/{id}/{fillColor}")
 	public void colorShape(@PathVariable("id")String id,@PathVariable("fillColor") String fillColor) throws CloneNotSupportedException {
+		System.out.println("colorShape");
 		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
+			System.out.println("colorShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setFillColor(fillColor);
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
@@ -57,7 +60,9 @@ public class PaintController {
 	
 	@GetMapping("/resize/{id}/{scaleX}/{scaleY}")
 	public void resizeShape(@PathVariable("id")String id,@PathVariable("scaleX") double scaleX,@PathVariable("scaleY") double scaleY) throws CloneNotSupportedException {
-		if(this.originator.getShapes().size() > Integer.parseInt(id)) {			
+		System.out.println("resizeShape");
+		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
+			System.out.println("resizeShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setScaleX(scaleX);
 			this.originator.getShapes().get(Integer.parseInt(id)).setScaleY(scaleY);
 			this.careTaker.save(originator);
@@ -67,7 +72,9 @@ public class PaintController {
 	
 	@GetMapping("/resize/{id}/{angle}")
 	public void rotateShape(@PathVariable("id")String id,@PathVariable("angle") double angle) throws CloneNotSupportedException {
-		if(this.originator.getShapes().size() > Integer.parseInt(id)) {	
+		System.out.println("rotateShape");
+		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
+			System.out.println("rotateShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setAngle(angle);
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
@@ -76,7 +83,9 @@ public class PaintController {
 	
 	@GetMapping("/move/{id}/{x}/{y}")
 	public void moveShape(@PathVariable("id")String id,@PathVariable("x") double x,@PathVariable("y") double y) throws CloneNotSupportedException {
+		System.out.println("moveShape");
 		if (this.originator.getShapes().size() > Integer.parseInt(id)) {
+			System.out.println("moveShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setX(x);
 			this.originator.getShapes().get(Integer.parseInt(id)).setY(y);
 			this.careTaker.save(originator);
@@ -86,7 +95,9 @@ public class PaintController {
 	
 	@GetMapping("/remove/{id}")
 	public void removeShape(@PathVariable("id") String id) throws CloneNotSupportedException {
+		System.out.println("removeShape");
 		if (this.originator.getShapes().size() > Integer.parseInt(id)) {
+			System.out.println("removeShape");
 			this.originator.getShapes().remove(Integer.parseInt(id));
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
@@ -95,20 +106,21 @@ public class PaintController {
 	
 	@GetMapping("/undo")
 	public String undo() {
+		System.out.println("undo");
 		this.careTaker.undo(originator);
-		String jsonString = gson.toJson(this.originator);
-		return jsonString;
+		return gson.toJson(this.originator);
 	}
 	
 	@GetMapping("/redo")
 	public String redo() {
+		System.out.println("redo");
 		this.careTaker.redo(originator);
-		String jsonString = gson.toJson(this.originator);
-		return jsonString;
+		return gson.toJson(this.originator);
 	}
 	
 	@PostMapping("/saveJSON")
-	public void saveJSON(@RequestBody String path) throws Exception {
+	public void saveJSON(@RequestBody String path) {
+		System.out.println("saveJSON");
         try {
 			System.out.println(path);
     		String jsonString = gson.toJson(this.originator);
@@ -118,12 +130,13 @@ public class PaintController {
             writer.flush();
             writer.close();
         }catch (Exception e){
-            e.printStackTrace();
+			System.out.println("System Error...");
         }
     }
 
 	@PostMapping("/saveXML")
-    public void saveXML(@RequestBody String path) throws Exception {
+    public void saveXML(@RequestBody String path) {
+		System.out.println("saveXML");
 		try {
 			File file = new File(path);
 			JAXBContext jaxbContext = JAXBContext.newInstance(Originator.class);
@@ -131,26 +144,26 @@ public class PaintController {
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			marshaller.marshal(this.originator, file);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("System Error...");
 		}
     }
 
 	@PostMapping("/LoadJSON")
-	public String loadJSON(@RequestBody String path) throws Exception {
+	public String loadJSON(@RequestBody String path) {
+		System.out.println("loadJSON");
 		BufferedReader bufferedReader = null;
 		try {
         	bufferedReader = new BufferedReader(new FileReader(path));
         	this.originator = gson.fromJson(bufferedReader, Originator.class);
-        	String jsonString = gson.toJson(this.originator);
-        	return jsonString;
+			return gson.toJson(this.originator);
         }catch (Exception e){
-            e.printStackTrace();
+			System.out.println("System Error...");
         }finally {
 			if(bufferedReader != null) {
 				try {
 					bufferedReader.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println("System Error...");
 				}
 			}
 		}
@@ -158,7 +171,8 @@ public class PaintController {
     }
 
 	@PostMapping("/loadXML")
-    public String loadXML(@RequestBody String path) throws Exception {
+    public String loadXML(@RequestBody String path) {
+		System.out.println("loadXML");
 		 try {
 	            Path filename = Path.of(path);
 	            String xmlString = Files.readString(filename);
@@ -169,7 +183,7 @@ public class PaintController {
 	            this.originator = gson.fromJson(jsonObject.toString(3), Originator.class);
 	            return jsonObject.toString(3);
         }catch (Exception e){
-            e.printStackTrace();
+			 System.out.println("System Error...");
         }
         return null;
     }

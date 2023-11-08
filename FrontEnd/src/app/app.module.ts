@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button'
-import { KonvaModule } from "ng2-konva";
+// import { KonvaModule } from "ng2-konva";
 import { KonvaService } from './konva.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
-    KonvaModule,
+    // KonvaModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule
