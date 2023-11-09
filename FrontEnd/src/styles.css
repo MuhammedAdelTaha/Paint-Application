@@ -1,20 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
-    margin: 0;
-    padding: 0;
+    margin-top: 1px;
     box-sizing: border-box;
     font-family: 'Poppins', 'serif';
 }
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #003B73;
-    margin: 0;
-    padding: 0;
+body {
+    background-color: #003B73;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

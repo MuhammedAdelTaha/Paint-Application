@@ -1,9 +1,9 @@
 .container {
-  width: 95vw;
-  height: 97vh;
   display: grid;
+  width: 1470px;
+  height: 700px;
   grid-template-rows: 1fr 44fr 1fr;
-  grid-template-columns: 1fr 9fr 1fr 38fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr 38fr 1fr;
   grid-template-areas:
     "b n n n n"
     "b tools m board l"
@@ -13,7 +13,6 @@
 }
 
 .container .tools {
-  width: 15vw;
   padding: 5px;
   background-color: #60A3D9;
   grid-area: tools;
@@ -27,6 +26,7 @@
 .container .tools .button {
   display: flex;
   font-size: large;
+  overflow: hidden;
   text-transform: capitalize;
   font-variant: small-caps;
   align-items: center;
@@ -60,7 +60,6 @@
 }
 
 #board {
-  width: 75vw;
   background-color: #BFD7ED;
   grid-area: board;
   border-radius: 15px;

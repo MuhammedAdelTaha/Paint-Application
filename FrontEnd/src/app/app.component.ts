@@ -1,16 +1,19 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, HostListener } from '@angular/core';
 import { KonvaService } from './konva.service';
 import { Stage } from 'konva/lib/Stage';
 import { Layer } from 'konva/lib/Layer';
 import Konva from 'konva';
 import { ShapCreator } from './paint/shapeFactory/shapeFactory';
+
 import { View } from './paint/view';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent implements OnInit {
+  
   title = 'painter';
   colour!: any;
   id!: number;
@@ -22,10 +25,12 @@ export class AppComponent implements OnInit {
   view!: View;
   currentShape!: string;
   Services: any;
+
   constructor(factory: ShapCreator, service: KonvaService) {
     this.shapeFactory = factory;
     this.Services = service;
   }
+
   ngOnInit() {
     this.id = 0;
     this.tr = new Konva.Transformer();
@@ -33,8 +38,8 @@ export class AppComponent implements OnInit {
     this.currentShape = '0';
     this.stage = new Stage({
       container: 'board',
-      width: window.innerWidth * 0.75,
-      height: window.innerHeight * 0.95,
+      width: 1470 * (38 / 46),
+      height: 700 * (44 / 46),
     });
     this.view = new View();
     this.view.dynamicLayer = new Layer();
@@ -55,12 +60,12 @@ export class AppComponent implements OnInit {
         this.colour = shape.attrs.fill;
       }
     });
-  }
+  }  
 
   reset() {
     this.ngOnInit();
   }
-  
+
   copy() {
     console.log('copy');
     var shape = this.stage.findOne('#' + this.currentShape);
@@ -111,7 +116,7 @@ export class AppComponent implements OnInit {
         return;
       }
       e.target.draggable(true);
-      component.tr.nodes([e.target]); 
+      component.tr.nodes([e.target]);
     });
 
     this.tr.on('transformend', function (e:any) {
@@ -133,34 +138,39 @@ export class AppComponent implements OnInit {
     });
   }
   addShape(shape: string) {
-  
-    this.shapeObject = this.shapeFactory
-      .factoryClass(
-        this.id.toString(),
-        shape,
-        50,
-        50,
-        200,
-        100,
-        '#ffffff',
-        '#000000',
-        3,
-        1,
-        1,
-        0,
-        false
-      )
-      .get();
+
+    this.shapeObject = this.shapeFactory.factoryClass(
+      this.id.toString(),
+      shape,
+      this.stage.width() / 2,
+      this.stage.height() / 2,
+      200,
+      100,
+      '#ffffff',
+      '#000000',
+      3,
+      1,
+      1,
+      0,
+      false
+    ).get();
+    
+    const shapeName = this.shapeObject.attrs.name
+    var strokeColor:string = '#ffffff'
+    if (shapeName == "lineSegment"){
+      strokeColor = this.shapeObject.attrs.stroke = '#000000'
+    }
+
     this.view.staticLayer.add(this.shapeObject);
     this.Services.create(
       this.id.toString(),
       shape,
-      50,
-      50,
+      this.stage.width() / 2,
+      this.stage.height() / 2,
       200,
       100,
-      'ffffff',
-      '000000',
+      strokeColor,
+      '#000000',
       3,
       1,
       1,
@@ -170,7 +180,7 @@ export class AppComponent implements OnInit {
     this.id = this.id + 1;
   }
   save(path: string, filename: string,extesion:string) {
-    
+
     if (extesion == 'json') {
       console.log(filename)
       this.Services.saveJson(path, filename);
@@ -179,7 +189,7 @@ export class AppComponent implements OnInit {
     }
   }
   getExtension(value:string): any {
-  this.fileExtension=value;
+    this.fileExtension=value;
   }
   load(path: string) {
     if(path.includes('json')){
@@ -211,7 +221,7 @@ export class AppComponent implements OnInit {
           this.view.staticLayer.add(this.shapeObject);
         }
       });
-      
+
     }else if(path.includes('xml')){
         path=path.substring(0, path.length-4);
         this.Services.loadXML(path).subscribe((x: any) => {
@@ -241,11 +251,11 @@ export class AppComponent implements OnInit {
           this.view.staticLayer.add(this.shapeObject);
         }
       });
-      
+
     }
 
     }
-    
+
   undo() {
     this.Services.undo().subscribe((x: any) => {
       x = JSON.stringify(x);

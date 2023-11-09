@@ -51,7 +51,6 @@ public class PaintController {
 	public void colorShape(@PathVariable("id")String id,@PathVariable("fillColor") String fillColor) throws CloneNotSupportedException {
 		System.out.println("colorShape");
 		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
-			System.out.println("colorShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setFillColor(fillColor);
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
@@ -62,7 +61,6 @@ public class PaintController {
 	public void resizeShape(@PathVariable("id")String id,@PathVariable("scaleX") double scaleX,@PathVariable("scaleY") double scaleY) throws CloneNotSupportedException {
 		System.out.println("resizeShape");
 		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
-			System.out.println("resizeShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setScaleX(scaleX);
 			this.originator.getShapes().get(Integer.parseInt(id)).setScaleY(scaleY);
 			this.careTaker.save(originator);
@@ -74,7 +72,6 @@ public class PaintController {
 	public void rotateShape(@PathVariable("id")String id,@PathVariable("angle") double angle) throws CloneNotSupportedException {
 		System.out.println("rotateShape");
 		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
-			System.out.println("rotateShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setAngle(angle);
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
@@ -85,7 +82,6 @@ public class PaintController {
 	public void moveShape(@PathVariable("id")String id,@PathVariable("x") double x,@PathVariable("y") double y) throws CloneNotSupportedException {
 		System.out.println("moveShape");
 		if (this.originator.getShapes().size() > Integer.parseInt(id)) {
-			System.out.println("moveShape");
 			this.originator.getShapes().get(Integer.parseInt(id)).setX(x);
 			this.originator.getShapes().get(Integer.parseInt(id)).setY(y);
 			this.careTaker.save(originator);
@@ -97,7 +93,6 @@ public class PaintController {
 	public void removeShape(@PathVariable("id") String id) throws CloneNotSupportedException {
 		System.out.println("removeShape");
 		if (this.originator.getShapes().size() > Integer.parseInt(id)) {
-			System.out.println("removeShape");
 			this.originator.getShapes().remove(Integer.parseInt(id));
 			this.careTaker.save(originator);
 			this.careTaker.clearRedo();
