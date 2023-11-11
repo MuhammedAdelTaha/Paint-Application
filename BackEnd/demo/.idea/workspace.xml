@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9fa27d-179f-49ae-aaf9-748ef7fad5a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/PaintApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/controller/CareTakerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/controller/PaintController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/model/Memento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/model/Originator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paint/demo/model/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/paint/demo/PaintApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/PaintApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/controller/CareTakerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/controller/PaintController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/model/Memento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/model/Originator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/paint/demo/model/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/BackEnd.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/PaintApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/controller/CareTakerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/controller/PaintController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/model/Memento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/model/Originator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/paint/demo/model/Shape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/com/paint/demo/PaintApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/PaintApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/controller/CareTakerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/controller/PaintController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/model/Memento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/model/Originator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/paint/demo/model/Shape.class" beforeDir="false" />
-    </list>
+    <list default="true" id="1a9fa27d-179f-49ae-aaf9-748ef7fad5a7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +12,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -85,7 +44,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "spring.configuration.checksum": "c1940aeeb9693a02e28c52eb85ce261c",
     "vue.rearranger.settings.migration": "true"
   }
@@ -113,6 +72,7 @@
       <workItem from="1699489814220" duration="10000" />
       <workItem from="1699489839709" duration="191000" />
       <workItem from="1699490998504" duration="1199000" />
+      <workItem from="1699492345804" duration="40000" />
     </task>
     <servers />
   </component>
