@@ -27,7 +27,7 @@ export class KonvaService {
       ).subscribe();
   }
   colour(id: string, fillColor: string) {
-    this.http.get(`${this.url}/${id}/${fillColor}`);
+    this.http.get(`${this.url}/color/${id}/${fillColor}`).subscribe();
   }
   resize(id: string, scaleX: number, scaleY: number) {
     this.http

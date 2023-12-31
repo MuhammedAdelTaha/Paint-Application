@@ -29,24 +29,24 @@ import jakarta.xml.bind.Marshaller;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/paint")
 public class PaintController {
-	
+
 	Gson gson = new Gson();
 	Originator originator = new Originator();
 	CareTakerController careTaker = new CareTakerController();
-	
+
 	@GetMapping("/add/{name}/{id}/{x}/{y}/{width}/{height}/{fillColor}/{stroke}/{strokeWidth}/{scaleX}/{scaleY}/{angle}/{draggable}")
 	public void addShape(@PathVariable("name") String name, @PathVariable("id") String id,
 						 @PathVariable("x") double x, @PathVariable("y") double y, @PathVariable("width") double width,
 						 @PathVariable("height") double height, @PathVariable("fillColor") String fillColor,
 						 @PathVariable("stroke") String stroke, @PathVariable("strokeWidth") double strokeWidth,
-						 @PathVariable("scaleX") double scaleX, @PathVariable("scaleY") double scaleY, 
+						 @PathVariable("scaleX") double scaleX, @PathVariable("scaleY") double scaleY,
 						 @PathVariable("angle") double angle, @PathVariable("draggable") boolean draggable) throws CloneNotSupportedException {
 		System.out.println("addShape");
 		this.originator.addShape(new Shape(name, id, x, y, width, height, fillColor, stroke, strokeWidth, scaleX, scaleY, angle, draggable));
 		this.careTaker.save(originator);
 		this.careTaker.clearRedo();
 	}
-	
+
 	@GetMapping("/color/{id}/{fillColor}")
 	public void colorShape(@PathVariable("id")String id,@PathVariable("fillColor") String fillColor) throws CloneNotSupportedException {
 		System.out.println("colorShape");
@@ -56,7 +56,7 @@ public class PaintController {
 			this.careTaker.clearRedo();
 		}
 	}
-	
+
 	@GetMapping("/resize/{id}/{scaleX}/{scaleY}")
 	public void resizeShape(@PathVariable("id")String id,@PathVariable("scaleX") double scaleX,@PathVariable("scaleY") double scaleY) throws CloneNotSupportedException {
 		System.out.println("resizeShape");
@@ -67,8 +67,8 @@ public class PaintController {
 			this.careTaker.clearRedo();
 		}
 	}
-	
-	@GetMapping("/resize/{id}/{angle}")
+
+	@GetMapping("/rotate/{id}/{angle}")
 	public void rotateShape(@PathVariable("id")String id,@PathVariable("angle") double angle) throws CloneNotSupportedException {
 		System.out.println("rotateShape");
 		if(this.originator.getShapes().size() > Integer.parseInt(id)) {
@@ -77,7 +77,7 @@ public class PaintController {
 			this.careTaker.clearRedo();
 		}
 	}
-	
+
 	@GetMapping("/move/{id}/{x}/{y}")
 	public void moveShape(@PathVariable("id")String id,@PathVariable("x") double x,@PathVariable("y") double y) throws CloneNotSupportedException {
 		System.out.println("moveShape");
@@ -88,7 +88,7 @@ public class PaintController {
 			this.careTaker.clearRedo();
 		}
 	}
-	
+
 	@GetMapping("/remove/{id}")
 	public void removeShape(@PathVariable("id") String id) throws CloneNotSupportedException {
 		System.out.println("removeShape");
@@ -98,21 +98,21 @@ public class PaintController {
 			this.careTaker.clearRedo();
 		}
 	}
-	
+
 	@GetMapping("/undo")
 	public String undo() {
 		System.out.println("undo");
 		this.careTaker.undo(originator);
 		return gson.toJson(this.originator);
 	}
-	
+
 	@GetMapping("/redo")
 	public String redo() {
 		System.out.println("redo");
 		this.careTaker.redo(originator);
 		return gson.toJson(this.originator);
 	}
-	
+
 	@PostMapping("/saveJSON")
 	public void saveJSON(@RequestBody String path) {
 		System.out.println("saveJSON");
@@ -182,5 +182,5 @@ public class PaintController {
         }
         return null;
     }
-	
+
 }
