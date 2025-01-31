@@ -2,7 +2,8 @@ import Konva from 'konva';
 import { Shape } from './interface';
 export class rectangleShape implements Shape {
   structure: any;
-  constructor(
+  constructor
+  (
     id: string,
     x: number,
     y: number,

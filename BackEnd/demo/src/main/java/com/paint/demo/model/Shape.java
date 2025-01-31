@@ -1,14 +1,14 @@
 package com.paint.demo.model;
 
 public class Shape implements Cloneable{
-	
+
 	private String name;
 	private String id;
-    private double x , y , width, height, scaleX, scaleY, angle;
-    private String fillColor , stroke;
-    private double strokeWidth;
-    private boolean draggable;
-    
+  private double x , y , width, height, scaleX, scaleY, angle;
+  private String fillColor , stroke;
+  private double strokeWidth;
+  private boolean draggable;
+
 	public Shape(String name, String id, double x, double y, double width, double height, String fillColor, String stroke,
 			double strokeWidth, double scaleX, double scaleY, double angle, boolean draggable) {
 		this.name = name;
@@ -25,7 +25,7 @@ public class Shape implements Cloneable{
 		this.angle = angle;
 		this.draggable = draggable;
 	}
-	
+
 	public Object clone() throws CloneNotSupportedException{
 		Shape clonedShape = null;
 		try {
@@ -54,5 +54,5 @@ public class Shape implements Cloneable{
 	public void setAngle(double angle) {
 		this.angle = angle;
 	}
-	
+
 }

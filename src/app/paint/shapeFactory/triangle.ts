@@ -1,10 +1,23 @@
-import { ROUTER_CONFIGURATION } from '@angular/router';
 import Konva from 'konva';
 import { Shape } from './interface';
 export class triangleShape implements Shape {
 
   structure: any;
-  constructor(id: string, x: number, y: number, width: number, height: number, fillColor: string, stroke: string, strokeWidth: number,scaleX:number,scaleY:number,rotation:number ,draggable: boolean) {
+  constructor
+  (
+    id: string,
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    fillColor: string,
+    stroke: string,
+    strokeWidth: number,
+    scaleX:number,
+    scaleY:number,
+    rotation:number,
+    draggable: boolean
+  ) {
     this.structure = new Konva.RegularPolygon({
       name: 'triangle',
       id: id,

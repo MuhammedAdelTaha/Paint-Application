@@ -2,7 +2,8 @@ import Konva from 'konva';
 import { Shape } from './interface';
 export class ellipseShape implements Shape {
   structure: any;
-  constructor(
+  constructor
+  (
     id: string,
     x: number,
     y: number,

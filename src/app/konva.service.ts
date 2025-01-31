@@ -21,26 +21,32 @@ export class KonvaService {
     rotation: number,
     draggable: boolean
   ) {
+    console.log(`${this.url}/add/${id}/${name}/${x}/${y}/${width}/${height}/${fillColor}/${stroke}/${strokeWidth}/${scaleX}/${scaleY}/${rotation}/${draggable}`);
     this.http
       .get(
-        `${this.url}/add/${name}/${id}/${x}/${y}/${width}/${height}/${fillColor}/${stroke}/${strokeWidth}/${scaleX}/${scaleY}/${rotation}/${draggable}`
+        `${this.url}/add/${id}/${name}/${x}/${y}/${width}/${height}/${fillColor}/${stroke}/${strokeWidth}/${scaleX}/${scaleY}/${rotation}/${draggable}`
       ).subscribe();
   }
   colour(id: string, fillColor: string) {
+    console.log(`${this.url}/color/${id}/${fillColor}`);
     this.http.get(`${this.url}/color/${id}/${fillColor}`).subscribe();
   }
   resize(id: string, scaleX: number, scaleY: number) {
+    console.log(`${this.url}/resize/${id}/${scaleX}/${scaleY}`);
     this.http
       .get(`${this.url}/resize/${id}/${scaleX}/${scaleY}`)
       .subscribe();
   }
   rotate(id: string, rotation: number) {
+    console.log(`${this.url}/rotate/${id}/${rotation}`);
     this.http.get(`${this.url}/rotate/${id}/${rotation}`).subscribe();
   }
   move(id: string, x: number, y: number) {
+    console.log(`${this.url}/move/${id}/${x}/${y}`);
     this.http.get(`${this.url}/move/${id}/${x}/${y}`).subscribe();
   }
   remove(id: string) {
+    console.log(`${this.url}/remove/${id}`);
     this.http.get(`${this.url}/remove/${id}`).subscribe();
   }
   saveJson(path: string, filename: string) {
@@ -56,9 +62,11 @@ export class KonvaService {
     return this.http.post(`${this.url}/loadXML`,`${path}.xml`);
   }
   undo() {
+    console.log(`${this.url}/undo`);
     return this.http.get(`${this.url}/undo`);
   }
   redo() {
+    console.log(`${this.url}/redo`);
     return this.http.get(`${this.url}/redo`);
   }
 }

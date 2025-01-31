@@ -1,69 +1,71 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="app.component.css">
+    <title>Draw</title>
+  </head>
 
-<head>
-  <link rel="stylesheet" href="app.component.css">
-</head>
+  <body>
+    <div class="container">
+      <div class="tools">
+        <!-- Shapes -->
+        <div class="button" title="square" (click)="addShape('square')">
+          <img ngSrc="../assets/square.svg" alt="fail" height="16" width="16"/>
+        </div>
 
-<body>
-  <div class="container">
-    <div class="tools">
-      <div class="button" title="square" (click)="addShape('square')">
-        <img src="../assets/square.svg" alt="fail" />
+        <div class="button" title="circle" (click)="addShape('circle')">
+          <img ngSrc="../assets/circle.svg" alt="fail" height="16" width="16"/>
+        </div>
+
+        <div class="button" title="rectangle" (click)="addShape('rectangle')">
+          <img ngSrc="../assets/rectangle.svg" alt="fail" height="48" width="48"/>
+        </div>
+
+        <div class="button" title="lineSegment" (click)="addShape('lineSegment')">
+          <img ngSrc="../assets/line.svg" alt="fail" height="24" width="24"/>
+        </div>
+
+        <div class="button" title="triangle" (click)="addShape('triangle')">
+          <img ngSrc="../assets/triangle.svg" alt="fail" height="16" width="18"/>
+        </div>
+
+        <div class="button" title="ellipse" (click)="addShape('ellipse')">
+          <img ngSrc="../assets/ellipse.svg" alt="fail" height="20" width="20"/>
+        </div>
+
+        <!-- Tools -->
+        <div class="button" title="copy" (click)="copy()">
+          <img ngSrc="../assets/copy.svg" alt="fail" height="700" width="700"/>
+        </div>
+
+        <div class="button" (click)="delete()">delete</div>
+
+        <div class="button" (click)="undo()">undo</div>
+
+        <div class="button" (click)="redo()">redo</div>
+
+        <div class="button" (click)="clear()">clear</div>
+
+        <input type="color" class="palette" title="Palette" [(ngModel)]="colour" (change)="fill()" />
+
+        <!-- Save and Load -->
+        <input type="text" #folderPath placeholder="Folder Path" />
+
+        <input type="text" #fileName placeholder="File Name" />
+
+        <input type="text" #extension placeholder="Extension" />
+
+        <div class="button" title="save" (click)="save(folderPath.value, fileName.value, extension.value)">
+          <img ngSrc="../assets/save.png" alt="fail" height="48" width="48"/>
+        </div>
+
+        <input type="text" #filePath placeholder="File Path" />
+
+        <div class="button" title="load" (click)="load(filePath.value)">
+          <img ngSrc="../assets/load.png" alt="fail" height="48" width="48"/>
+        </div>
       </div>
 
-      <div class="button" title="circle" (click)="addShape('circle')">
-        <img src="../assets/circle.svg" alt="fail" />
-      </div>
-
-      <div class="button" title="rectangle" (click)="addShape('rectangle')">
-        <img src="../assets/rectangle.svg" alt="fail" />
-      </div>
-
-      <div class="button" title="lineSegment" (click)="addShape('lineSegment')">
-        <img src="../assets/line.svg" alt="fail" />
-      </div>
-
-      <div class="button" title="triangle" (click)="addShape('triangle')">
-        <img src="../assets/triangle.svg" alt="fail" />
-      </div>
-
-      <div class="button" title="ellipse" (click)="addShape('ellipse')">
-        <img src="../assets/ellipse.svg" alt="fail" />
-      </div>
-
-      <div class="button" title="copy" (click)="copy()">
-        <img src="../assets/copy.svg" alt="fail" />
-      </div>
-
-      <div class="button" (click)="delete()">delete</div>
-      
-      <div class="button" (click)="undo()">undo</div>
-      
-      <div class="button" (click)="redo()">redo</div>
-      
-      <div class="button" (click)="reset()">clear</div>
-      
-      <input type="text" #foldername placeholder="Folder Path" />
-
-      <input type="text" #filename placeholder="File Name" />
-
-      <input type="text" #extension placeholder="Extension" />
-
-      <div class="button" title="save" (click)="save(foldername.value, filename.value,extension.value)">
-        <img src="../assets/save.png" alt="fail" />
-      </div>
-
-      <input type="text" #loadfile placeholder="File Path" />
-
-      <div class="button" title="load" (click)="load(loadfile.value)">
-        <img src="../assets/load.png" alt="fail" />
-      </div>
-
-      <input type="color" class="palette" title="Palette" [(ngModel)]="colour" (change)="fill()" />
+      <div id="board"></div>
     </div>
-
-    <div id="board"></div>
-  </div>
-</body>
-
+  </body>
 </html>

@@ -1,7 +1,7 @@
 .container {
   display: grid;
-  width: 1470px;
-  height: 700px;
+  width: 1500px;
+  height: 720px;
   grid-template-rows: 1fr 44fr 1fr;
   grid-template-columns: 1fr 5fr 1fr 38fr 1fr;
   grid-template-areas:
@@ -36,7 +36,7 @@
   height: 30px;
   width: 60%;
   border-radius: 20px;
-  margin: 3px 3px 3px 3px;
+  margin: 3px;
   justify-content: space-around;
   user-select: none;
   cursor: pointer;
@@ -70,9 +70,3 @@ img {
   height: 50%;
   object-fit: contain;
 }
-
-/* .drawShapes {
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 1fr 4fr;
-} */
