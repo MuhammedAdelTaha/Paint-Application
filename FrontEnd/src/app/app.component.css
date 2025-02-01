@@ -1,0 +1,72 @@
+.container {
+  display: grid;
+  width: 1500px;
+  height: 720px;
+  grid-template-rows: 1fr 44fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr 38fr 1fr;
+  grid-template-areas:
+    "b n n n n"
+    "b tools m board l"
+    "footer footer footer footer footer";
+  background-color: #0074B7;
+  border-radius: 15px;
+}
+
+.container .tools {
+  padding: 5px;
+  background-color: #60A3D9;
+  grid-area: tools;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .tools .button {
+  display: flex;
+  font-size: large;
+  overflow: hidden;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  align-items: center;
+  background-color: #BFD7ED;
+  border: 1px solid #60A3D9;
+  justify-self: center;
+  height: 30px;
+  width: 60%;
+  border-radius: 20px;
+  margin: 3px;
+  justify-content: space-around;
+  user-select: none;
+  cursor: pointer;
+}
+
+.container .tools .button:hover {
+  background-color: #0074B7;
+  transition: 0.7s;
+}
+
+.container .tools input {
+  width: 70%;
+  background-color: #BFD7ED;
+  border: 1px solid #60A3D9;
+  border-radius: 6px;
+  padding: 3px 6px;
+}
+
+.container .tools .palette {
+  width: 60%;
+}
+
+#board {
+  background-color: #BFD7ED;
+  grid-area: board;
+  border-radius: 15px;
+}
+
+img {
+  width: 20%;
+  height: 50%;
+  object-fit: contain;
+}

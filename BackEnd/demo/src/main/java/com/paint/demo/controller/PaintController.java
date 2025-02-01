@@ -123,7 +123,7 @@ public class PaintController {
 	}
 
   @GetMapping("/clear")
-  public void clear() throws CloneNotSupportedException {
+  public void clearShapes() throws CloneNotSupportedException {
     System.out.println("clear");
     this.originator.create();
     this.careTaker.save(originator);
@@ -131,14 +131,14 @@ public class PaintController {
   }
 
 	@GetMapping("/undo")
-	public String undo() {
+	public String undoAction() {
 		System.out.println("undo");
 		this.careTaker.undo(originator);
 		return gson.toJson(this.originator);
 	}
 
 	@GetMapping("/redo")
-	public String redo() {
+	public String redoAction() {
 		System.out.println("redo");
 		this.careTaker.redo(originator);
 		return gson.toJson(this.originator);
